@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 # Author: QianTian
 
+
 class LNode:
     def __init__(self, elem, _next=None):
         self.elem = elem
