@@ -69,6 +69,14 @@ def selection_sort(a):
         i += 1
 
 
+def merge_sort(a):
+    pass
+
+
+def quick_sort(a):
+    pass
+
+
 def climb_stairs(n):
     """recursion"""
     if n == 1:
