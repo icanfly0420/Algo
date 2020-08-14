@@ -11,7 +11,11 @@ class LQueue:
         self.tail = 0
 
     def __len__(self) -> int:
-        return len(self.data)
+        l = self.head
+        count = 0
+        while l != self.tail+1:
+            count += 1
+        return count
 
     def __iter__(self):
         for item in self.data:
@@ -23,10 +27,20 @@ class LQueue:
 
     def enqueue(self, val: int) -> bool:
         if len(self) == self.capacity:
-            return False
-        else:
-            self.data.append(val)
-            return True
+            if self.head == 0:
+                return False
+            else:
+                l = self.head
+                n = 0
+                while l != self.tail + 1:
+                    self.data[n] = self.data[l]
+                    n += 1
+                    l += 1
+                self.head = 0
+                self.tail = n
+        self.data[self.tail] = val
+        self.tail += 1
+        return True
 
     def dequeue(self) -> object:
         try:
